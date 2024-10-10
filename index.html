@@ -2,78 +2,118 @@
   Deberá mostrar mediante una etiqueta en color rosa si no esta introducido el texto en el input. 
   La variable de resultado deberá llamarse “noname”
   25 de septiembre del 2024 -->
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario de Registro</title>
-    <style>
-        /* Estilos para el cuerpo de la página */
-        body {
-            display: flex;
-            justify-content: center; /* Centra el formulario horizontalmente */
-            align-items: center; /* Centra el formulario verticalmente */
-            height: 100vh; /* Altura completa de la ventana */
-            margin: 0; /* Sin margen */
-            background-color: #f0f0f0; /* Color de fondo */
-        }
-
-        /* Estilo del formulario */
-        form {
-            display: flex;
-            flex-direction: column; /* Organiza los elementos en columna */
-            width: 300px; /* Ancho del formulario */
-            padding: 20px; /* Espaciado interno */
-            background-color: white; /* Color de fondo del formulario */
-            border-radius: 10px; /* Bordes redondeados */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
-        }
-
-        /* Estilo para el mensaje de error */
-        .error-message {
-            color: #ff1493; /* Rosa */
-            margin-top: 5px; /* Espacio superior para separar del input */
-            font-size: 14px; /* Tamaño de fuente del mensaje de error */
-        }
-
-        /* Estilo del botón de envío */
-        input[type="submit"] {
-            margin-top: 10px; /* Espacio superior para el botón */
-            padding: 10px; /* Espaciado interno del botón */
-            cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
-            background-color: #af4c89; /* Color de fondo del botón */
-            color: white; /* Color del texto del botón */
-            border: none; /* Sin borde */
-            border-radius: 5px; /* Bordes redondeados */
-        }
-    </style>
-</head>
-<body>
-    <h1>Formulario de Registro</h1>
-    <form id="registro-form" onsubmit="return validarFormulario()">
-        <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" name="nombre" required>
-        <span class="error-message" id="nombre-error"></span> <!-- Mensaje de error -->
-        <br>
-        <input type="submit" value="Registrarse"> <!-- Botón de envío -->
-    </form>
-
-    <script>
-        function validarFormulario() {
-            const nombreInput = document.getElementById('nombre');
-            const nombreError = document.getElementById('nombre-error');
-            let noname = false; // Variable para comprobar si el nombre está vacío
-
-            if (nombreInput.value.trim() === '') {
-                nombreError.textContent = 'Por favor, introduce tu nombre.'; // Muestra el mensaje de error
-                noname = true; // Marca como error
-            } else {
-                nombreError.textContent = ''; // Limpia el mensaje de error
-            }
-
-            return !noname; // Permite enviar el formulario solo si no hay error
-        }
-    </script>
-</body>
-</html>
+ <!DOCTYPE html>
+  <html lang="es">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Formulario de Registro</title>
+      <style>
+          /* Estilos para el cuerpo de la página */
+          body {
+              display: flex;
+              justify-content: center; /* Centra el formulario horizontalmente */
+              align-items: center; /* Centra el formulario verticalmente */
+              height: 100vh; /* Altura completa de la ventana */
+              margin: 0; /* Sin margen */
+              background: linear-gradient(135deg, #6e45e2, #88d3ce); /* Fondo degradado */
+              font-family: 'Arial', sans-serif; /* Tipo de fuente */
+          }
+  
+          /* Estilo del contenedor del formulario */
+          .form-container {
+              display: flex;
+              flex-direction: column; /* Organiza los elementos en columna */
+              width: 350px; /* Ancho del formulario */
+              padding: 30px; /* Espaciado interno */
+              background-color: white; /* Color de fondo del formulario */
+              border-radius: 15px; /* Bordes redondeados */
+              box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Sombra */
+          }
+  
+          /* Estilo del título */
+          h1 {
+              text-align: center; /* Centra el título */
+              margin-bottom: 20px; /* Espacio inferior */
+              color: #6e45e2; /* Color del texto del título */
+          }
+  
+          /* Estilo de las etiquetas */
+          label {
+              margin-bottom: 5px; /* Espacio inferior para las etiquetas */
+              color: #333; /* Color del texto de las etiquetas */
+              font-weight: bold; /* Texto en negrita */
+          }
+  
+          /* Estilo de los campos de entrada */
+          input[type="text"] {
+              padding: 10px; /* Espaciado interno */
+              border: 2px solid #6e45e2; /* Borde del campo */
+              border-radius: 5px; /* Bordes redondeados */
+              margin-bottom: 15px; /* Espacio inferior entre campos */
+              transition: border-color 0.3s; /* Transición suave al enfocar */
+              font-size: 16px; /* Tamaño de la fuente */
+          }
+  
+          /* Cambia el borde del campo al enfocar */
+          input[type="text"]:focus {
+              border-color: #88d3ce; /* Color del borde al enfocar */
+              outline: none; /* Sin contorno adicional */
+          }
+  
+          /* Estilo para el mensaje de error */
+          .error-message {
+              color: #ff1493; /* Color rosa para el mensaje de error */
+              margin-top: -10px; /* Ajusta el espacio para que esté más cerca del input */
+              margin-bottom: 10px; /* Espacio inferior para separar del siguiente input */
+              font-size: 14px; /* Tamaño de fuente del mensaje de error */
+          }
+  
+          /* Estilo del botón de envío */
+          input[type="submit"] {
+              padding: 10px; /* Espaciado interno del botón */
+              cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+              background-color: #6e45e2; /* Color de fondo del botón */
+              color: white; /* Color del texto del botón */
+              border: none; /* Sin borde */
+              border-radius: 5px; /* Bordes redondeados */
+              font-size: 16px; /* Tamaño de la fuente */
+              transition: background-color 0.3s; /* Transición suave en hover */
+          }
+  
+          /* Efecto hover del botón */
+          input[type="submit"]:hover {
+              background-color: #88d3ce; /* Cambia el color al pasar el mouse */
+          }
+      </style>
+  </head>
+  <body>
+      <div class="form-container">
+          <h1>Formulario de Registro</h1>
+          <form id="registro-form" onsubmit="return validarFormulario()">
+              <label for="nombre">Nombre:</label>
+              <input type="text" id="nombre" name="nombre" required>
+              <span class="error-message" id="nombre-error"></span> <!-- Mensaje de error -->
+              <input type="submit" value="Registrarse"> <!-- Botón de envío -->
+          </form>
+      </div>
+  
+      <script>
+          function validarFormulario() {
+              const nombreInput = document.getElementById('nombre');
+              const nombreError = document.getElementById('nombre-error');
+              let noname = false; // Variable para comprobar si el nombre está vacío
+  
+              if (nombreInput.value.trim() === '') {
+                  nombreError.textContent = 'Por favor, introduce tu nombre.'; // Muestra el mensaje de error
+                  noname = true; // Marca como error
+              } else {
+                  nombreError.textContent = ''; // Limpia el mensaje de error
+              }
+  
+              return !noname; // Permite enviar el formulario solo si no hay error
+          }
+      </script>
+  </body>
+  </html>
+  
